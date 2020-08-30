@@ -1,3 +1,5 @@
+# Programa em python para implementar o cliente de um chat utilizando sockets
+# Feito por Otávio de lima Soares e Sérgio Herique Menta Garcia
 import socket 
 import select 
 import sys 
@@ -7,6 +9,10 @@ server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 HOST = input("Digite o IP do servidor: ")
 PORT = 5000
 server.connect((HOST, PORT)) 
+
+print(server.recv(2048).decode())
+name = input("Digite um apelido de identificação: ")
+server.send(name.encode())
   
 while True: 
   
